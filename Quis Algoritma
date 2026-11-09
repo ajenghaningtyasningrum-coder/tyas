@@ -1,0 +1,40 @@
+# Input nama mahasiswa
+nama = input("Masukkan nama mahasiswa (Andi/Budi/Citra): ")
+
+# Menentukan target nilai
+if nama.lower() == "andi":
+    target = 70
+elif nama.lower() == "budi":
+    target = 75
+elif nama.lower() == "citra":
+    target = 80
+else:
+    print("Nama mahasiswa tidak terdaftar!")
+    exit()
+
+print("Nama mahasiswa :", nama)
+print("Target nilai   :", target)
+
+# Proses ujian maksimal 3 kali
+percobaan = 1
+lulus = False
+
+while percobaan <= 3:
+    nilai = int(input(f"Masukkan nilai ujian ke-{percobaan}: "))
+
+    if nilai >= target:
+        lulus = True
+        break
+    else:
+        print("Nilai belum mencapai target!")
+        if percobaan < 3:
+            print("Silakan mengikuti remedial.")
+        percobaan += 1
+# Menampilkan hasil akhir
+print("\n=== HASIL UJIAN ===")
+
+if lulus:
+    print(nama, "berhasil lulus!")
+    print("Jumlah percobaan:", percobaan)
+else:
+    print(nama, "tidak lulus setelah 3 kali percobaan.")
